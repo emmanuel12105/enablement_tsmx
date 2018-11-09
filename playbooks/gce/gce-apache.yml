@@ -1,16 +1,17 @@
 ---
+  #Playbook to create instances and install and start apache
 - name: Create gce webserver instances
   hosts: localhost
   connection: local
   gather_facts: True
 
   vars:
-    service_account_email: acalleja@tam-blog.iam.gserviceaccount.com
-    credentials_file: tam-blog-f41fc56a41a2.json
-    project_id: tam-blog
-    instance_names: web1,web2,web3
-    machine_type: n1-standard-1
-    image: centos-7
+    service_account_email: ["Set here the email account"]
+    credentials_file: ["Put here the credentials file .json"]
+    project_id: ["Put here your ID Project"]
+    instance_names: ["Put here the name of instances to create"]
+    machine_type: n1-standard-1 ---> "Example"
+    image: centos-7 -----> "Example"
 
   tasks:
   - name: Create firewall rule to allow http traffic

@@ -1,14 +1,16 @@
 ---
+  #Playbook to delete instances, balancer and configurations
 - name: Playbook to clean gce instances
   hosts: localhost
   connection: local
   gather_facts: no
 
   vars:
-    service_account_email: acalleja@tam-blog.iam.gserviceaccount.com
-    credentials_file: tam-blog-f41fc56a41a2.json
-    project_id: tam-blog
-    instance_names: web1,web2,web3
+    service_account_email: ["Set here the email account"]
+    credentials_file: ["Put here the credentials file .json"]
+    project_id: ["Put here your ID Project"]
+    instance_names: ["Put here the name of instances to create"]
+
 
   tasks:
     - name: Delete gce load balancer
@@ -18,7 +20,7 @@
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"
         project_id: "{{ project_id }}"
-    
+
     - name: Delete gce instances
       gce:
         instance_names: "{{ instance_names }}"

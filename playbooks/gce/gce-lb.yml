@@ -5,9 +5,9 @@
   gather_facts: True
 
   vars:
-    service_account_email: acalleja@tam-blog.iam.gserviceaccount.com
-    credentials_file: tam-blog-f41fc56a41a2.json
-    project_id: tam-blog
+    service_account_email: ["Set here the email account"]
+    credentials_file: ["Put here the credentials file .json"]
+    project_id: ["Put here your ID Project"]
 
   tasks:
     - name: Create gce load balancer
