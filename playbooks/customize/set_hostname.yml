@@ -1,0 +1,9 @@
+---
+- name: kjslSJAKjsAJSALKSLKA
+  hosts: servers
+  vars:
+      hostname: vm-*.tsmx.lab
+
+  tasks:
+    - name: Ponle un nombre aca de barrio, chido, ñero
+      hostname: name={{ hostname.replace('*', ansible_all_ipv4_addresses[0].split('.')[3]) }}

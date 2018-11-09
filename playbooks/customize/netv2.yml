@@ -1,0 +1,34 @@
+---
+- name: Set IPv4 v2
+  hosts: servers
+  tasks:
+
+    - name: Install bind-utils
+      yum: 
+        name: bind-utils 
+        state: present
+
+    - name: Install needed network manager libs
+      yum: 
+        name: "{{ item }}" 
+        state: present
+      with_items:
+        - NetworkManager-glib
+        - nm-connection-editor
+        - libsemanage-python
+        - policycoreutils-python
+
+    - name: Configure eth0 
+      nmcli:
+        conn_name: eth0
+        ifname: eth0
+        type: ethernet
+        ip4: 192.168.122.15/24
+        dns4: 192.168.122.1
+        gw4: 192.168.122.1
+        state: present
+
+    - name: Restart Network
+      service: 
+        name: network 
+        state: restarted
