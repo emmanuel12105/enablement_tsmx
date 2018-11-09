@@ -37,7 +37,7 @@
       service_account_email: "{{ service_account_email }}"
       credentials_file: "{{ credentials_file }}"
       project_id: "{{ project_id }}"
-      metadata: '{"sshKeys":"dark_axl:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDgkDNPD18cIbZJlhhntzj2Mms8cGJ+cE1cs1i8rBrfbxhDKZWZW+4UGdw5y+k2SY/ieu+084zHxeSMPXVCUSbLA3VHNldizCZkj4qn5VC1Wr9EWS901gaKCV5+u06p8z2kOXyFZbbavkumb7AcediGvr2d2u8kV45uVv/nDoiXea/5UIJ6p0t37nLWRk4drLhTF9AHbOtfcmuKI3pJ9DyInWtM+NYyCrl1xd3jaHLw6iqKdn5EfZSEowXCayuatW8xj9I50NuTH3TSLdScDkQJovs7mI9+VAQ7tlOp54iEcs5TtHMzTsKTYwSis5YYQOvvKIRitXSg6/qO6OaDsmjydLOjOUQ7K52T8P+tjgtobdBc2ITkagMN5y9mRD09Gie02P8+vkEdCJy6aZswKM+QPmcUuM7l+v56jgkpJrgcgvrLlDHsxWIXdoH+PLQ6GAMUcZ5bdtfviW5bGyN+VESm/fksjHUNkjnkFeZBR2J1nKWq2/Vqfi6o9d1m0yqzZCrZ68t0ihOj+wtgbAeBE7jQaiFetyxDwPsXP5LX871v2ZN5SkQmnfsJq/JSIVOrJCtrTCZP4yGuDkE1ituTTRbL0jihS/VU/LqXt8+h6lJpuXcsEZ37GOTClvtxVXb0hZQGGmHoHH7QMZ0qXaVBEhb8eIjcj92VgQos2QhmWwA/nQ== alex.callejas@isengard.mx.redhat.com"}'
+      metadata: '{"sshKeys":"Put here your key"}'
     register: gce
 
   - name: Save hosts data within a group
@@ -57,7 +57,7 @@
 - name: Configure instance post-creation
   hosts: gce_instances_temp
   gather_facts: True
-  remote_user: dark_axl
+  remote_user: [Set here user]
   become: yes
   become_method: sudo
 
